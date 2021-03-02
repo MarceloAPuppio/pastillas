@@ -1,9 +1,11 @@
 import React from "react";
 import Tracking from "../components/tracking/index";
+import Medicamentos from "../components/medicamentos/index";
 
 class PageHome extends React.Component {
   state = {
     hasUser: false,
+    isSubmited: false,
     user: {
       name: "",
       gleucemia: null,
@@ -13,9 +15,18 @@ class PageHome extends React.Component {
     },
   };
   handleChange = (e) => {
+    console.log(e.target.type);
     this.setState({
-      user: { ...this.state.user, [e.target.name]: e.target.checked },
+      user: {
+        ...this.state.user,
+        [e.target.name]:
+          e.target.type === "checkbox" ? e.target.checked : e.target.value,
+      },
     });
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ isSubmited: true });
   };
   componentWillMount = (props) => {
     // let usuario = {
@@ -33,12 +44,14 @@ class PageHome extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {(this.state.hasUser && <h1>{this.state.user.name}</h1>) || (
-          <Tracking
-            onChange={this.handleChange}
-            medicamentos={this.state.user.medicamentos}
-          />
-        )}
+        {(this.state.isSubmited && <Medicamentos />) ||
+          (this.state.hasUser && <h1>{this.state.user.name}</h1>) || (
+            <Tracking
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              medicamentos={this.state.user.medicamentos}
+            />
+          )}
       </React.Fragment>
     );
   }

@@ -6,11 +6,14 @@ class Tracking extends React.Component {
   render() {
     return (
       <section id="trackeo">
-        <form action="#">
+        <form action="#" onSubmit={this.props.onSubmit}>
           <input
             type="text"
+            name="name"
             placeholder="Ingresá tu nombre"
             className="form_inputText"
+            onChange={this.props.onChange}
+            required
           />
           <h2>Trackeo</h2>
           <CheckItem name="presion" onChange={this.props.onChange} />
@@ -19,7 +22,14 @@ class Tracking extends React.Component {
           {this.props.medicamentos ? (
             <React.Fragment>
               <h4>Cuántos</h4>
-              <input type="number" min="1" max="10" />
+              <input
+                type="number"
+                min="1"
+                max="10"
+                required
+                name="cantidadMedicamentos"
+                onChange={this.props.onChange}
+              />
             </React.Fragment>
           ) : (
             ""
