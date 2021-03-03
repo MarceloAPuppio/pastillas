@@ -25,7 +25,8 @@ class Tracking extends React.Component {
           <CheckItem name="medicamentos" onChange={this.props.onChange} />
           {this.props.medicamentos ? (
             <React.Fragment>
-              <h4>Cuántos</h4>
+              <div className="inputNumberContainer">
+              <label>Cantidad</label>
               <input
                 type="number"
                 min="1"
@@ -33,13 +34,15 @@ class Tracking extends React.Component {
                 required
                 name="cantidadMedicamentos"
                 onChange={this.props.onChange}
+                className="input--number"
               />
+              </div>
             </React.Fragment>
           ) : (
             ""
           )}
-          <input type="submit" value="Siguiente" />
-          {/* <input type="reset" value="Limpiar" />  Tengo que resolver tema que no vuelve valores a false....*/}
+          <input type="submit" value="⏩" className="trackeo__btn"/>
+          {/* <input type="reset" value="Limpiasdsdr" />  Tengo que resolver tema que no vuelve valores a false....*/}
         </form>
       </section>
     );
