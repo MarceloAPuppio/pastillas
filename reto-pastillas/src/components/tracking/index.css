@@ -5,7 +5,7 @@
   justify-content: center;
   padding-top: 60px;
 }
-form {
+.form_tracking {
   width: 80%;
   display: flex;
   flex-flow: column;
@@ -25,11 +25,11 @@ form {
   outline: none;
   box-shadow: 2px 2px 10px #ccc;
 }
-form > input[type="submit"] {
+.form_tracking > input[type="submit"] {
   position: absolute;
   bottom: 100px;
 }
-form > input[type="number"]:invalid {
+.form_tracking > input[type="number"]:invalid {
   box-shadow: 1px 1px 4px rgb(233, 109, 109), -1px -1px 4px rgb(233, 109, 109);
   border: solid 1px red;
 }

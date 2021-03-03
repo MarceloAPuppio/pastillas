@@ -6,7 +6,11 @@ class Tracking extends React.Component {
   render() {
     return (
       <section id="trackeo">
-        <form action="#" onSubmit={this.props.onSubmit}>
+        <form
+          action="#"
+          onSubmit={this.props.onSubmit}
+          className="form_tracking"
+        >
           <input
             type="text"
             name="name"

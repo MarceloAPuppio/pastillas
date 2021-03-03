@@ -1,0 +1,49 @@
+.li__medicamentosItem__color {
+  border: none;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* input[type="color"]::before {
+  content: "👉";
+  font-size: 15px;
+  position: absolute;
+  display: inline;
+  background: #444;
+  color: whitesmoke;
+  padding: 5px;
+  border-radius: 20px;
+} */
+
+.li__medicamentosItem__color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.li__medicamentosItem__color::-webkit-color-swatch {
+  border: none;
+  border-radius: 0 3px 3px 0;
+}
+.li__medicamentosItem__text {
+  padding-left: 10px;
+  margin: 0px 10px;
+  height: 35px;
+  width: 100%;
+  border-radius: 3px;
+  border: solid 1px gainsboro;
+  box-shadow: 1px 1px 3px gainsboro;
+}
+
+.li__medicamentosItem {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 10px 0;
+  position: relative;
+}

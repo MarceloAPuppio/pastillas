@@ -11,7 +11,7 @@ class PageHome extends React.Component {
       gleucemia: null,
       presion: null,
       medicamentos: null,
-      medicamentosArray: [],
+      medicamentosArray: [{ nombre: "", color: "#000", ingerido: null }],
     },
   };
   handleChange = (e) => {
@@ -24,9 +24,29 @@ class PageHome extends React.Component {
       },
     });
   };
+  handleChangeItem = (e) => {
+    let medicamentosArray = [...this.state.user.medicamentosArray];
+    medicamentosArray[e.target.getAttribute("data-key")] = {
+      ...medicamentosArray[e.target.getAttribute("data-key")],
+      [e.target.name]: e.target.value,
+    };
+    this.setState({
+      user: {
+        medicamentosArray,
+      },
+    });
+  };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ isSubmited: true });
+    this.setState({
+      isSubmited: true,
+      user: {
+        ...this.state.user,
+        medicamentosArray: Array(
+          parseInt(this.state.user.cantidadMedicamentos)
+        ).fill({ nombre: "", color: "", ingerido: null }),
+      },
+    });
   };
   componentWillMount = (props) => {
     // let usuario = {
@@ -44,7 +64,12 @@ class PageHome extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {(this.state.isSubmited && <Medicamentos />) ||
+        {(this.state.isSubmited && (
+          <Medicamentos
+            medicamentosArray={this.state.user.medicamentosArray}
+            onChangeItem={this.handleChangeItem}
+          />
+        )) ||
           (this.state.hasUser && <h1>{this.state.user.name}</h1>) || (
             <Tracking
               onChange={this.handleChange}
