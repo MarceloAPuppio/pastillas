@@ -6,7 +6,11 @@ class Medicamentos extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <form action="#" className="form_medicamentos">
+        <form
+          action="#"
+          className="form_medicamentos"
+          onSubmit={this.props.onSubmit}
+        >
           <h2>Ingresa tus medicamentos</h2>
           <h3>( y asignales un color 🎨 )</h3>
           <ul>
@@ -15,7 +19,7 @@ class Medicamentos extends React.Component {
                 <MedicamentosItem
                   key={index}
                   dataKey={index}
-                  onChange={this.props.onChangeItem}
+                  onChange={this.props.onChange}
                 />
               );
             })}

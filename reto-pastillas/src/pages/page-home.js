@@ -1,6 +1,5 @@
 import React from "react";
 import Tracking from "../components/tracking/index";
-import Medicamentos from "../components/medicamentos/index";
 
 class PageHome extends React.Component {
   state = {
@@ -15,7 +14,6 @@ class PageHome extends React.Component {
     },
   };
   handleChange = (e) => {
-    console.log(e.target.type);
     this.setState({
       user: {
         ...this.state.user,
@@ -25,37 +23,49 @@ class PageHome extends React.Component {
     });
   };
   handleChangeItem = (e) => {
+    console.log("me toma el change...");
     let medicamentosArray = [...this.state.user.medicamentosArray];
     medicamentosArray[e.target.getAttribute("data-key")] = {
       ...medicamentosArray[e.target.getAttribute("data-key")],
       [e.target.name]: e.target.value,
     };
     this.setState({
-      user: {
-        medicamentosArray,
-      },
+      user: { ...this.state.user, medicamentosArray },
     });
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    if (this.state.user.medicamentos) {
+      this.setState({
+        isSubmited: true,
+        user: {
+          ...this.state.user,
+          medicamentosArray: Array(
+            parseInt(this.state.user.cantidadMedicamentos)
+          ).fill({ nombre: "", color: "", ingerido: null }),
+          // medicamentos: true,
+        },
+      });
+    } else {
+      alert("Listo, no tenés medicamentos :O");
+      this.setState({
+        isSubmited: true,
+        hasUser: true,
+      });
+      let user = { ...this.state.user, medicamentosArray: [] };
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+  };
+  handleSubmitMedicamentos = (e) => {
+    e.preventDefault();
     this.setState({
       isSubmited: true,
-      user: {
-        ...this.state.user,
-        medicamentosArray: Array(
-          parseInt(this.state.user.cantidadMedicamentos)
-        ).fill({ nombre: "", color: "", ingerido: null }),
-      },
+      hasUser: true,
     });
+    let user = { ...this.state.user };
+    localStorage.setItem("user", JSON.stringify(user));
   };
   componentWillMount = (props) => {
-    // let usuario = {
-    //   name: "Marcelo",
-    //   gleucemia: true,
-    //   presion: false,
-    //   medicamentos: [],
-    // };
-    // localStorage.setItem("user", JSON.stringify(usuario));
     if (localStorage.getItem("user")) {
       let objeto = JSON.parse(localStorage.getItem("user"));
       this.setState({ user: objeto, hasUser: true });
@@ -64,19 +74,19 @@ class PageHome extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {(this.state.isSubmited && (
-          <Medicamentos
+        {/*Si hay usuario en localStorage, hago un render de la planilla de carga*/}
+        {(this.state.hasUser && <h1>{this.state.user.name}</h1>) || (
+          /*Aquí hago el renderizado de la pantatalla de trackeo, siempre y cuando no haya un usuario en memoria*/
+          <Tracking
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            medicamentos={this.state.user.medicamentos}
+            isSubmited={this.state.isSubmited}
             medicamentosArray={this.state.user.medicamentosArray}
             onChangeItem={this.handleChangeItem}
+            onSubmitMedicamentos={this.handleSubmitMedicamentos}
           />
-        )) ||
-          (this.state.hasUser && <h1>{this.state.user.name}</h1>) || (
-            <Tracking
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              medicamentos={this.state.user.medicamentos}
-            />
-          )}
+        )}
       </React.Fragment>
     );
   }
