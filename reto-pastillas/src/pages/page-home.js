@@ -1,5 +1,6 @@
 import React from "react";
 import Tracking from "../components/tracking/index";
+import Historial from "../components/historial/index"
 
 class PageHome extends React.Component {
   state = {
@@ -75,7 +76,7 @@ class PageHome extends React.Component {
     return (
       <React.Fragment>
         {/*Si hay usuario en localStorage, hago un render de la planilla de carga*/}
-        {(this.state.hasUser && <h1>{this.state.user.name}</h1>) || (
+        {(this.state.hasUser && <Historial user={this.state.user}/>) || (
           /*Aquí hago el renderizado de la pantatalla de trackeo, siempre y cuando no haya un usuario en memoria*/
           <Tracking
             onChange={this.handleChange}

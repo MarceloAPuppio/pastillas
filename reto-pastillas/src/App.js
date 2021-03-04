@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import PageHome from "./pages/page-home";
 import Medicamentos from "./components/medicamentos";
