@@ -1,19 +1,31 @@
 import React from "react";
+import "./index.css";
 import Modal from "../modal/index";
+import LiHistorial from "../li-historial/index";
 class Historial extends React.Component {
   state = {
-    isModalVisible: true,
+    isModalVisible: false,
+    liHistorial: JSON.parse(localStorage.getItem("user")),
   };
-
+  handleClick = () => {
+    alert("ouch");
+    this.setState({ ...this.state, isModalVisible: true });
+  };
   handleSubmitModal = (e, object) => {
     e.preventDefault();
-    console.log(object);
+    this.props.onSubmit(e, object);
+    this.setState({
+      isModalVisible: false,
+      liHistorial: JSON.parse(localStorage.getItem("user")),
+    });
     //===============================================
     //  Hasta acá todo bieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeen, ahora tengo que meter esto en el state, poner
     // el modalvisible en false y hacer magia con el evento click para concatenar el historial
   };
   render() {
     let user = this.props.user;
+    // desestructuro liHistorial
+    const historial = this.state.liHistorial.history;
     console.log(this.props.user.medicamentosArray);
     return (
       (this.state.isModalVisible && (
@@ -21,10 +33,12 @@ class Historial extends React.Component {
       )) || (
         <React.Fragment>
           <h1>Historial de {user.name}</h1>
-          {this.props.user.medicamentosArray.map((item, index) => {
-            return <h1>Medicamento {item.nombre}</h1>;
-          })}
-          <button>Add</button>
+          <ul className="historial__ul">
+            {historial.map((item, index) => {
+              return <LiHistorial item={item} />;
+            })}
+          </ul>
+          <button onClick={this.handleClick}>Add</button>
         </React.Fragment>
       )
     );

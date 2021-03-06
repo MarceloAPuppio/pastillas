@@ -50,7 +50,10 @@ class Tracking extends React.Component {
             ) : (
               ""
             )}
-            <input type="submit" value="⏩" className="trackeo__btn" />
+            <button className="trackeo__btn">
+              <i className="fas fa-caret-right"></i>
+            </button>
+            {/* <input type="submit" value="⏩" className="trackeo__btn" /> */}
             {/* <input type="reset" value="Limpiasdsdr" />  Tengo que resolver tema que no vuelve valores a false....*/}
           </form>
         </section>

@@ -2,7 +2,8 @@ import React from "react";
 import ModalInput from "../modal-inputs/index";
 class Modal extends React.Component {
   state = {
-    fecha: "",
+    fecha: new Date(),
+    fechaAdaptada: "",
     medicionPresion: "",
     medicionGleucemia: "",
     medicamentosArray: [...this.props.datos.medicamentosArray],
@@ -20,16 +21,17 @@ class Modal extends React.Component {
       });
     }
   };
+  componentWillMount = () => {
+    this.setState({
+      fechaAdaptada: `${this.state.fecha
+        .getDate()
+        .toString()
+        .padStart(2, "0")}-${(this.state.fecha.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}-${this.state.fecha.getFullYear().toString()}`,
+    });
+  };
   render() {
-    console.log(this.props.datos, "this porps dartos");
-    let date = new Date();
-    let staticDaet = `${date
-      .getDate()
-      .toString()
-      .padStart(2, "0")}-${date
-      .getMonth()
-      .toString()
-      .padStart(2, "0")}-${date.getFullYear().toString()}`;
     return (
       <React.Fragment>
         <form
@@ -38,7 +40,7 @@ class Modal extends React.Component {
             this.props.onSubmitModal(e, this.state);
           }}
         >
-          <h1>Control diario: {staticDaet}</h1>
+          <h1>Control diario: {this.state.fechaAdaptada}</h1>
           {this.props.datos.gleucemia && (
             <ModalInput
               type="text"

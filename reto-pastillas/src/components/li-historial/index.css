@@ -1,0 +1,15 @@
+.historial__li {
+  background: #f0f0f3;
+  font-size: 8px;
+  width: 290px;
+  height: 60px;
+  border: solid transparent 4px;
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+.historial__li:active {
+  border: solid #f0f0f3 4px;
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff,
+    inset -3px -3px 10px #ffffff, inset 3px 3px 10px rgba(174, 174, 192, 0.4);
+}

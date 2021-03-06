@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap");
+
 #trackeo {
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
-  padding-top: 60px;
+  padding-top: 45px;
 }
 .form_tracking {
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -14,17 +16,22 @@
 }
 
 .form_inputText {
-  border-radius: 40px;
-  border: solid 1px rgb(207, 207, 207);
-  height: 40px;
-  width: 75%;
+  background-color: #f0f0f3;
+  border: none;
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff,
+    inset -5px -5px 10px #ffffff, inset 5px 5px 10px rgba(174, 174, 192, 0.4);
+  border-radius: 15px;
+  color: #808b9f;
+  font: 400 16px "Roboto", sans-serif;
+
+  height: 50px;
+  width: 100%;
   padding-left: 16px;
 }
-
 .form_inputText:focus {
   outline: none;
-  box-shadow: 2px 2px 10px #ccc;
 }
+
 .form_tracking > input[type="submit"] {
   position: absolute;
   bottom: 100px;
@@ -37,41 +44,54 @@
   box-shadow: 1px 1px 4px rgb(138, 233, 109), -1px -1px 4px rgb(202, 255, 142);
   border: solid 1px rgb(0, 255, 34);
 } */
-.input--number{
+.input--number {
   width: 35px;
   height: 35px;
   font-size: 25px;
   padding: 3px;
   text-align: center;
-  border:none;
+  border: solid #c8ffba 1px;
   border-radius: 8px;
-  box-shadow: 0px -1px 3px rgb(155, 208, 243), 0px 1px 3px rgb(95, 93, 189);
+  background: #b3ffa6;
+  box-shadow: inset 3px 3px 5px #9ee092, inset -3px -3px 5px #c8ffba,
+    2px 2px 5px rgba(174, 174, 192, 0.4), -2px -2px 5px #ffffff;
   -moz-appearance: textfield;
-  background: #2195f307;
   caret-color: gainsboro;
-
-
+  color: #808b9f;
+  font: 400 16px "Roboto", sans-serif;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none; 
-      margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-.inputNumberContainer{
-  width: 65%;
+.inputNumberContainer {
+  width: 150px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   /* border-left: solid 
   #2196f3 6px; */
-  border-right: solid 
-  #2196f3 3px;
-  border-radius: 5px;
+  border-radius: 10px;
   height: 40px;
   padding: 0 5px;
-  background: #2195f307;
+  background-color: #f0f0f3;
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff;
 }
-.trackeo__btn{
-  height: 35px;
+.trackeo__btn {
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #808b9f;
+  font-size: 20px;
+  position: absolute;
+  bottom: 60px;
+}
+.trackeo__btn:hover,
+.trackeo__btn:active {
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff,
+    inset 2px 2px 5px rgba(174, 174, 192, 0.4), inset -2px -2px 5px #ffffff;
 }
