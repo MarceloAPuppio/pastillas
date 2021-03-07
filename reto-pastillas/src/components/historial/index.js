@@ -32,13 +32,17 @@ class Historial extends React.Component {
         <Modal datos={this.props.user} onSubmitModal={this.handleSubmitModal} />
       )) || (
         <React.Fragment>
-          <h1>Historial de {user.name}</h1>
-          <ul className="historial__ul">
-            {historial.map((item, index) => {
-              return <LiHistorial item={item} />;
-            })}
-          </ul>
-          <button onClick={this.handleClick}>Add</button>
+          <section className="section-historial">
+            <h2>Historial de {user.name}</h2>
+            <ul className="historial__ul">
+              {historial.map((item, index) => {
+                return <LiHistorial item={item} />;
+              })}
+            </ul>
+            <button className="historial__button" onClick={this.handleClick}>
+              +
+            </button>
+          </section>
         </React.Fragment>
       )
     );

@@ -1,15 +1,61 @@
 .historial__li {
   background: #f0f0f3;
   font-size: 8px;
-  width: 290px;
+  width: 320px;
   height: 60px;
   border: solid transparent 4px;
-  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff;
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4),
+    -10px -10px 30px 5px #ffffff;
   border-radius: 40px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
 }
 .historial__li:active {
   border: solid #f0f0f3 4px;
   box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff,
     inset -3px -3px 10px #ffffff, inset 3px 3px 10px rgba(174, 174, 192, 0.4);
+}
+.historial__li__date {
+  letter-spacing: 1.2px;
+  font-size: 18px;
+  width: 80px;
+  color: #636363;
+  /* text-shadow: 1.5px 1.5px 4px rgb(0, 0, 0), -1.5px -1.5px 4px white; */
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+.historial__li__date::before {
+  position: absolute;
+  top: -5.5px;
+  left: -12.5px;
+  border-radius: 40px 0px 0px 40px;
+  height: 55px;
+  width: 85px;
+  content: "";
+  z-index: -1;
+  box-shadow: 2px 2px 4px 1px rgba(174, 174, 192, 0.4), -2px -2px 4px 1px white;
+  /* background: rgb(142, 240, 129); */
+}
+.historial__li__medicion {
+  font-size: 14px;
+}
+.historial__li__medicamento {
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 2px 3px;
+  box-shadow: 1px 1px 3px 0px rgba(40, 40, 41, 0.719), -1px -1px 3px 2px #ffffff;
+}
+.historial__li__medicamentos-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50px;
 }

@@ -1,4 +1,32 @@
+.section-historial {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .historial__ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+}
+
+.historial__button {
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4),
+    -10px -10px 30px 10px #ffffff;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #808b9f;
+  font-size: 20px;
+  position: absolute;
+  bottom: 100px;
+  right: 40px;
+}
+.historial__button:hover,
+.historial__button:active {
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff,
+    inset 2px 2px 5px rgba(174, 174, 192, 0.4), inset -2px -2px 5px #ffffff;
 }
