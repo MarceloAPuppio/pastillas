@@ -3,33 +3,35 @@
   font-size: 8px;
   width: 320px;
   height: 60px;
-  border: solid transparent 4px;
-  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4),
-    -10px -10px 30px 5px #ffffff;
+  box-shadow: 3px 3px 10px rgba(174, 174, 192, 0.4), -2px -2px 10px 1px #ffffff;
   border-radius: 40px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  transition: all ease-in-out;
 }
-.historial__li:active {
-  border: solid #f0f0f3 4px;
-  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #ffffff,
+.historial__li:active,
+.historial__li:hover {
+  /* border: solid #f0f0f3 4px; */
+  box-shadow: 3px 3px 10px rgba(174, 174, 192, 0.4), -2px -2px 10px 1px #ffffff,
     inset -3px -3px 10px #ffffff, inset 3px 3px 10px rgba(174, 174, 192, 0.4);
 }
 .historial__li__date {
   letter-spacing: 1.2px;
-  font-size: 18px;
   width: 80px;
   color: #636363;
   /* text-shadow: 1.5px 1.5px 4px rgb(0, 0, 0), -1.5px -1.5px 4px white; */
   text-align: center;
-  font-weight: bold;
   position: relative;
   z-index: 1;
+  width: 70px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
-.historial__li__date::before {
+/* .historial__li__date::before {
   position: absolute;
   top: -5.5px;
   left: -12.5px;
@@ -39,14 +41,50 @@
   content: "";
   z-index: -1;
   box-shadow: 2px 2px 4px 1px rgba(174, 174, 192, 0.4), -2px -2px 4px 1px white;
-  /* background: rgb(142, 240, 129); */
+
+} */
+.date-day {
+  margin: 2px;
+  font-size: 16px;
 }
-.historial__li__medicion {
+.date-day::after {
+  content: "/";
+}
+.date-month {
+  margin: 2px;
+  font-size: 16px;
+}
+.date-year {
+  font-size: 10px;
+  font-weight: bold;
+}
+.historial__li__medicion-gleucemia {
   font-size: 14px;
+  font-weight: normal;
+  position: relative;
+  padding-top: 14px;
+}
+.historial__li__medicion-gleucemia::before {
+  content: "G";
+  position: absolute;
+  top: 0px;
+  right: 3px;
+}
+.historial__li__medicion-presion {
+  font-size: 14px;
+  font-weight: normal;
+  position: relative;
+  padding-top: 14px;
+}
+.historial__li__medicion-presion::before {
+  content: "P";
+  position: absolute;
+  top: 0px;
+  right: 3px;
 }
 .historial__li__medicamento {
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   display: inline-block;
   border-radius: 50%;
   margin: 2px 3px;

@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 let InputText = (props) => {
   return (
     <input
@@ -14,13 +15,18 @@ let InputCheck = (props) => {
   console.log(props);
   return (
     <React.Fragment>
-      <div style={{ background: props.color }}>
-        <input
-          type="checkbox"
-          onChange={props.onChange}
-          data-key={props.dataKey}
-        />
-        <label htmlFor="">{props.nombre}</label>
+      <div className="input-checkbox-container" style={{ color: props.color }}>
+        <label className="modal-switch">
+          {/* {props.nombre}{" "} */}
+          <input
+            className="inputModal"
+            type="checkbox"
+            onChange={props.onChange}
+            data-key={props.dataKey}
+            id={props.dataKey}
+          />
+          <span className="sliderModal"></span>
+        </label>
       </div>
     </React.Fragment>
   );

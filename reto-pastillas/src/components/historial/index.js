@@ -33,7 +33,7 @@ class Historial extends React.Component {
       )) || (
         <React.Fragment>
           <section className="section-historial">
-            <h2>Historial de {user.name}</h2>
+            <h2 className="historial__title">Historial de {user.name}</h2>
             <ul className="historial__ul">
               {historial.map((item, index) => {
                 return <LiHistorial item={item} />;

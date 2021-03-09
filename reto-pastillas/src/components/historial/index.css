@@ -1,9 +1,11 @@
 .section-historial {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
 }
-
+.historial__title {
+  text-align: center;
+}
 .historial__ul {
   list-style: none;
   padding-left: 0;
