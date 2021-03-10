@@ -2,13 +2,17 @@ import React from "react";
 import "./index.css";
 let InputText = (props) => {
   return (
-    <input
-      type="text"
-      placeholder={props.placeholder}
-      required
-      onChange={props.onChange}
-      name={props.name}
-    />
+    <label className="inputModal-label">
+      <input
+        className="inputModal-text"
+        type="text"
+        placeholder="&nbsp;"
+        required
+        onChange={props.onChange}
+        name={props.name}
+      />
+      <span className="inputModal-span">{props.placeholder}</span>
+    </label>
   );
 };
 let InputCheck = (props) => {
@@ -16,8 +20,9 @@ let InputCheck = (props) => {
   return (
     <React.Fragment>
       <div className="input-checkbox-container" style={{ color: props.color }}>
-        <label className="modal-switch">
+        <label className="modal-switch" title={`Medicamento: ${props.nombre}`}>
           {/* {props.nombre}{" "} */}
+
           <input
             className="inputModal"
             type="checkbox"
@@ -25,7 +30,10 @@ let InputCheck = (props) => {
             data-key={props.dataKey}
             id={props.dataKey}
           />
-          <span className="sliderModal"></span>
+          <span className="sliderModal">
+            <i class="fas fa-check"></i>
+            <i class="fas fa-times"></i>
+          </span>
         </label>
       </div>
     </React.Fragment>

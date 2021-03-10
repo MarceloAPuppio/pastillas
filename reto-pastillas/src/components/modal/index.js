@@ -43,7 +43,11 @@ class Modal extends React.Component {
               this.props.onSubmitModal(e, this.state);
             }}
           >
-            <h1>Control diario: {this.state.fechaAdaptada}</h1>
+            <h1 className="modal-title">
+              Control diario
+              <br />
+              {this.state.fechaAdaptada}
+            </h1>
             {this.props.datos.gleucemia && (
               <ModalInput
                 type="text"
@@ -60,20 +64,26 @@ class Modal extends React.Component {
                 onChange={this.handleChange}
               />
             )}
-            {this.props.datos.medicamentos && <h1>medicamentos</h1>}
-            {this.props.datos.medicamentosArray.map((item, index) => {
-              return (
-                <ModalInput
-                  type="checkbox"
-                  nombre={item.nombre}
-                  key={index}
-                  dataKey={index}
-                  color={item.color}
-                  onChange={this.handleChange}
-                />
-              );
-            })}
-            <input type="submit" />{" "}
+            {this.props.datos.medicamentos && <h3>Medicamentos</h3>}
+            <div className="modal__form__medicamentos-container">
+              {this.props.datos.medicamentosArray.map((item, index) => {
+                return (
+                  <ModalInput
+                    type="checkbox"
+                    nombre={item.nombre}
+                    key={index}
+                    dataKey={index}
+                    color={item.color}
+                    onChange={this.handleChange}
+                  />
+                );
+              })}
+            </div>
+            <input
+              type="submit"
+              value="Add"
+              className="modal__form__btn-submit"
+            />{" "}
             {/* Cuando haga el submit, debo poner en false la visibilidad del modal */}
           </form>
         </section>
